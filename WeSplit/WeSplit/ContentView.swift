@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  WeSplit
-//
-//  Created by Enrico Sousa Gollner on 21/10/22.
-//
-
 import SwiftUI
 
 struct ContentView: View{
@@ -46,7 +39,7 @@ struct ContentView: View{
                         .focused($amountIsFocused)
                     
                     Picker("Número de pessoas", selection: $numberOfPeople){
-                        ForEach(2..<100){
+                        ForEach(2..<21){
                             Text("\($0) people")
                         }
                     }
@@ -65,7 +58,7 @@ struct ContentView: View{
                     Text("Percentual de gorjeta:")
                 }
                 
-                Section{
+                Section(){
                     Text(totalPerPerson, format: formater)
                 } header: {
                     Text("Valor por pessoa:")
@@ -76,6 +69,7 @@ struct ContentView: View{
                 } header: {
                     Text("Valor total (com gorjeta):")
                 }
+                .foregroundColor(tipPercentage == 0 ? .red : .primary)
             }
             .navigationTitle("WeSplit")
             .toolbar{
